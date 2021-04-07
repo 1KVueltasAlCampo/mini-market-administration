@@ -2,6 +2,7 @@ package ui;
 import model.*;
 import exceptions.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -30,16 +31,27 @@ public class Menu {
 		int option = -1;
 		do {
 			showMenuOptions();
-			option = sc.nextInt();
+			try {
+				option = sc.nextInt();
+			} catch(InputMismatchException xd) {
+				System.out.println("Advertencia: Por favor ingrese unicamente numeros");
+				option = 0;
+			}
+			
 			sc.nextLine();
 			doAnOption(option);
-		} while(option != 0);
+		} while(option != 3);
 	}
 	
 	public void doAnOption(int option) {
 		switch(option) {
 		case ENTER_A_PERSON_TO_THE_MINIMARKET:
 			enterAPersonToTheMinimarket();
+			break;
+		case SEE_HOW_MANY_PEOPLE_ATTEMPTED_TO_ENTER:
+			seeHowManyPeopleAttemptedToEnter();
+			break;
+		case EXIT:
 			break;
 		default: System.out.println("Ingrese una opcion valida");	
 		}
@@ -55,7 +67,13 @@ public class Menu {
 		System.out.println("I N G R E S E  U N A  P E R S O N A  A L  M I N I M E R C A D O");
 		System.out.println("Ingrese el tipo de identificacion de la persona. Use una de las siguientes opciones:");
 		showIDTypesOptions();
-		int idType = sc.nextInt();
+		int idType = -1;
+		try {
+			idType = sc.nextInt();
+		}
+		catch(InputMismatchException xd) {
+			System.out.println("Advertencia: Por favor ingrese unicamente numeros");
+		}
 		sc.nextLine();
 		System.out.println("Ingrese el numero de documento");
 		String idNumber = sc.nextLine();
@@ -72,6 +90,10 @@ public class Menu {
 			System.out.println("Presione enter para continuar ");
 			sc.nextLine();
 		}
-		
+	}
+	
+	public void seeHowManyPeopleAttemptedToEnter() {
+		System.out.println(mm.getTriedToEnter()+" persona/s intentaron ingresar a el minimercado. De estas, "+mm.getNumberOfPeopleInTheMarket()+ " personas lograron ingresar al minimercado");
+		System.out.println("");
 	}
 }

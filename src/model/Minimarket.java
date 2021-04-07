@@ -41,7 +41,14 @@ public class Minimarket {
 	
 	public boolean evaluateDayAnIdCompatibility(String idNumber) {
 		boolean oddDay = actualDay % 2 != 0;
-		int penultimateNumberOfId = Character.getNumericValue(idNumber.charAt(idNumber.length()-2));
+		if(idNumber.length()==1) {
+			return false;
+		}
+		char charPenultimateNumberOfId = idNumber.charAt(idNumber.length()-2);
+		if(Character.isLetter(charPenultimateNumberOfId)) {
+			return false;
+		}
+		int penultimateNumberOfId = Character.getNumericValue(charPenultimateNumberOfId);
 		boolean penultimateNumberOfIdIsEven = penultimateNumberOfId % 2 == 0;
 		return oddDay==penultimateNumberOfIdIsEven;
 	}
