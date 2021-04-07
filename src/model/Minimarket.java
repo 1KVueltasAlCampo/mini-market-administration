@@ -56,4 +56,8 @@ public class Minimarket {
 	public int getActualDay() {
 		return actualDay;
 	}
+	
+	public void setActualDay(int actualDay) { 		//Created for tests
+		this.actualDay=actualDay;
+	}
 }

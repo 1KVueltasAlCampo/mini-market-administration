@@ -2,7 +2,6 @@ package ui;
 import model.*;
 import exceptions.*;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
