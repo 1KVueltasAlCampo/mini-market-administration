@@ -2,6 +2,6 @@ package exceptions;
 
 public class InvalidIDTypeException extends Exception{
 	public InvalidIDTypeException() {
-		super("El tipo de identificacion ingresado no es valido");
+		super("The type of identification entered is not valid");
 	}
 }

@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import exceptions.IncompatibleDayAndIDNumberException;
 import exceptions.InvalidIDTypeException;
 
-public class minimarket {
+public class Minimarket {
 	private int triedToEnter;
 	private ArrayList<Person> peopleInTheMarket;
 	private int numberOfPeopleInTheMarket;
 	private int actualDay;
 	
-	public minimarket() {
+	public Minimarket() {
 		triedToEnter = 0;
 		peopleInTheMarket = new ArrayList<Person>();
 		numberOfPeopleInTheMarket = peopleInTheMarket.size();
