@@ -29,6 +29,7 @@ public class Minimarket {
 			case 3:
 				if(evaluateDayAnIdCompatibility(idNumber)) {
 					peopleInTheMarket.add(new Person(typeIndicator,idNumber));
+					numberOfPeopleInTheMarket++;
 				}
 				else {
 					throw new IncompatibleDayAndIDNumberException();
@@ -42,7 +43,7 @@ public class Minimarket {
 		boolean oddDay = actualDay % 2 != 0;
 		int penultimateNumberOfId = Character.getNumericValue(idNumber.charAt(idNumber.length()-2));
 		boolean penultimateNumberOfIdIsEven = penultimateNumberOfId % 2 == 0;
-		return oddDay && penultimateNumberOfIdIsEven;
+		return oddDay==penultimateNumberOfIdIsEven;
 	}
 	
 	public int getTriedToEnter() {
