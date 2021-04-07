@@ -1,5 +1,5 @@
 package model;
 
 public enum IDType {
-	TI,CC,PP,CE;
+	CC,PP,CE,TI;
 }
